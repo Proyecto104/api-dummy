@@ -1,12 +1,10 @@
 export interface Product {
-  ProductID: number;
-  ProductName: string;
-  SupplierID: number;
-  CategoryID: number;
-  QuantityPerUnit: string;
-  UnitPrice: string;
-  UnitsInStock: number;
-  UnitsOnOrder: number;
-  ReorderLevel: number;
-  Discontinued: boolean;
+  id?: number;
+  idComercio:number;
+  nombre: string;
+  detalle: string;
+  porciones: number;
+  disponibles?: number;
+  expiracion: string;
+  imagen?: string;
 }
