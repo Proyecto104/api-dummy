@@ -154,24 +154,32 @@ export class AppService {
 
 
   //RESERVAS
+  getAllReservations(){
+    let tmpList: any = this.reserveList
+    tmpList = tmpList.map((res:Reserve)=>{
+      return {...res, business: this.getUser(res.idComercio)}
+    })
+    return tmpList;
+  }
+
   getAllUserReservation(idUser: number){
-    return this.reserveList.filter(reserve=> reserve.userId === idUser)
+    return this.getAllReservations().filter(reserve=> reserve.userId === idUser)
   }
 
   getAllActiveUserReservation(idUser: number){
-    return this.reserveList.filter(reserve=>(reserve.userId === idUser && !reserve.delivered))
+    return this.getAllReservations().filter(reserve=>(reserve.userId === idUser && !reserve.delivered))
   }
 
   getAllBusinessReservation(idComercio: number){
-    return this.reserveList.filter(reserve=> reserve.idComercio === idComercio)
+    return this.getAllReservations().filter(reserve=> reserve.idComercio === idComercio)
   }
 
   getAllActiveBusinessReservation(idComercio: number){
-    return this.reserveList.filter(reserve=> (reserve.idComercio === idComercio && !reserve.delivered))
+    return this.getAllReservations().filter(reserve=> (reserve.idComercio === idComercio && !reserve.delivered))
   }
 
   getReservation(id: number){
-    const reserve = this.reserveList.find(reserve=> reserve.reservationId === id)
+    const reserve = this.getAllReservations().find(reserve=> reserve.reservationId === id)
     return reserve ? reserve: 'No encontrado';
   }
 
@@ -185,7 +193,7 @@ export class AppService {
         return prod
       }
     })
-    return this.reserveList.find(res=>res.reservationId === this.lastReserveId);
+    return this.getAllReservations().find(res=>res.reservationId === this.lastReserveId);
   }
 
   registerReservationWithToken(reservationData:Reserve){
