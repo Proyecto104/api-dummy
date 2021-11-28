@@ -157,7 +157,7 @@ export class AppService {
   getAllReservations(){
     let tmpList: any = this.reserveList
     tmpList = tmpList.map((res:Reserve)=>{
-      return {...res, business: this.getUser(res.idComercio)}
+      return {...res, business: this.getUser(res.idComercio), comida: this.getProduct(res.prodId)}
     })
     return tmpList;
   }
