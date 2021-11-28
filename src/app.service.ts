@@ -46,7 +46,7 @@ export class AppService {
     porciones: 3,
     disponibles: 1,
     id: 1,
-    imagen: "https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kcXMyjGx/200/200/original?country=ar"
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.jpg"
   }] 
   private reserveList: Reserve[] = [{
     idComercio: 1,
