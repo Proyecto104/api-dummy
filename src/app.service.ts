@@ -132,15 +132,23 @@ export class AppService {
 
   //PRODUCTOS
   getAllProducts(){
-    return this.productList;
+    let tmpList: any = this.productList;
+    tmpList = tmpList.map((prod)=>{
+      return {...prod, business: this.getUser(prod.idComercio)}
+    })
+    return tmpList;
   }
 
   getAllAvailableProducts(){
-    return this.productList.filter((prod)=> prod.disponibles > 0);
+    return this.getAllProducts().filter((prod)=> prod.disponibles > 0);
   }
 
   getBusinessProducts(idComercio: number){
     return this.productList.filter(prod=>prod.idComercio === idComercio)
+  }
+
+  getProductImage(idProd: number){
+    return this.productList.find(prod=>prod.id === idProd)?.imagen
   }
 
 

@@ -25,4 +25,9 @@ export class ProductController {
   getProduct(@Param('ProductId', ParseIntPipe) productId:number): any{
     return this.appService.getProduct(productId)
   }
+
+  @Get('/image/:ProductId')
+  getProductImage(@Param('ProductId', ParseIntPipe) productId:number): any{
+    return this.appService.getProductImage(productId)
+  }
 }
