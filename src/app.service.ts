@@ -238,7 +238,7 @@ export class AppService {
   }
 
   registerReservationWithToken(reservationData: Reserve) {
-    const tokens = ['fruta', 'ayudar', 'comida', 'comunidad']
+    const tokens = ['fruta', 'ayuda', 'casa', 'rico', 'sano']
     return this.registerReservation({ ...reservationData, token: tokens[Math.floor(Math.random() * tokens.length)] })
   }
 
