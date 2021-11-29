@@ -135,7 +135,7 @@ export class AppService {
   getAllProducts(){
     let tmpList: any = this.productList;
     tmpList = tmpList.map((prod)=>{
-      return {...prod, business: this.getUser(prod.idComercio)}
+      return {...prod, business: this.getUser(prod.idComercio), imagen: prod.imagen.replace(/[\n\r]/g, '')}
     })
     return tmpList;
   }
